@@ -2,8 +2,16 @@ package stringutil
 
 import "strings"
 
-func CaseInsenstiveContains(src, quantifier string) bool {
-	return strings.Contains(strings.ToUpper(src), strings.ToUpper(quantifier))
+func CaseInsenstiveContains(src string, quantifiers ...string) bool {
+	found := false
+
+	for _, quantifier := range quantifiers {
+		if found == false {
+			found = strings.Contains(strings.ToUpper(src), strings.ToUpper(quantifier))
+		}
+	}
+
+	return found
 }
 
 func CaseInsensitiveIndexOf(src,  quantifier string) int {

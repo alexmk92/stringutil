@@ -1,6 +1,8 @@
 package stringutil
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestSearch(t *testing.T) {
 	cases := []struct {
@@ -17,6 +19,10 @@ func TestSearch(t *testing.T) {
 		if got != c.want {
 			t.Errorf("CaseInsesitiveContains(%q) == %q, want %q", c.in, got, c.want)
 		}
+	}
+	got := CaseInsenstiveContains("LORE ITEM MAGIC ITEM TEMPORARY", "lore", "temporary")
+	if got != true {
+		t.Errorf("CaseInsesitiveContains(%q) == , Expected true, got false", "LORE ITEM MAGIC ITEM TEMPORARY")
 	}
 
 	casesB := []struct {
