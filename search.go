@@ -22,3 +22,13 @@ func CaseInsensitiveIndexOf(src,  quantifier string) int {
 	}
 	return index
 }
+
+func CaseInsensitiveSliceContainsString(src []string, quantifier string) bool {
+	for _, v := range src {
+		if v == quantifier {
+			return true
+		}
+	}
+
+	return false
+}
